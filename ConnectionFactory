@@ -18,12 +18,12 @@ public final class ConnectionFactory {
             instance = new ConnectionFactory();
         return instance;
     }
-      public Connection getConnection() throws ClassNotFoundException, SQLException {
+      public Connection getConnection1() throws ClassNotFoundException, SQLException {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             return DriverManager.getConnection("jdbc:oracle:thin:@"+ serverIP1 +":1521:" + serverSID1, userName1, password1);
     }
     
-    public Connection getConnectionTarget() throws ClassNotFoundException, SQLException {
+    public Connection getConnection2() throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         return DriverManager.getConnection("jdbc:oracle:thin:@"+ serverIpTarget2 +":1521:" + serverSIDTarget2, userNameTarget2, passwordTarget2);
 }
