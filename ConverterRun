@@ -1,0 +1,36 @@
+public class ConverterRun{
+	private static String sourceSchema1="TEST1";
+  private static String sourceSchema2="TEST2";
+
+		public static int domainIdx = 4442;//6823;//tb_domains.dom_id
+	public static int startIdx = 3000000;
+	public static int systemIdx = 4441;//6825;//tb_systems.sys_id
+	public static int domSystemIdx = 4443;//tb_domsystems.doms_id
+	public static long LICRoleIdx = startIdx  - 3;
+	public static long AllURLsSOBJIdx = startIdx  - 4;
+	public static long AllURLsRoleAccessIdx = startIdx  - 5;
+	public static final String HOURS = "FFFFFFFFFFFFF";
+	public static final String MACHINES = "*.*.*.*";
+	public static void main(String[] args) throws Exception {
+  
+  IdGenerator idGenerator = new IdGenerator(startIdx);
+  
+  	ConnectionFactory connectionFactory = ConnectionFactory.getInstance();
+		Connection connectionr1 = connectionFactory.getConnection1();
+		Connection connectiont2 = connectionFactory.getConnection2();
+		connection.setAutoCommit(false);
+		try {
+    Test test = new Test(sourceSchema1, sourceSchema2, idGenerator, connection1,connection2);
+			test.run();
+      connection.commit();
+			java.lang.System.out.println("Finish Successfully!!!");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			connection.rollback();
+		} finally {
+			connectionFactory.closeConnection(connection);
+			connectionFactory.closeConnection(connectiontarget);
+			connectionFactory.closeConnection(connectionCamunda);
+		}
+
+	}
