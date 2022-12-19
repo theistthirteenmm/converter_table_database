@@ -1,0 +1,21 @@
+public class test {
+
+    private String test1;
+    private String test2;
+    private HashMap<String, String> map = new HashMap<String, String>();
+    private IdGenerator idGenerator;
+    private RandomStringUUID randomStringUUID;
+    private Connection1 connection;
+    private Connection2 connection;
+
+
+    public Job(String test1 asdasdurceSchema, IdGenerator idGenerator,String Camunda, Connection connection , Connection connectiontarget,Connection connectionCamunda) {
+        this.targetSchema = targetSchema;
+        this.Camunda = Camunda;
+        this.sourceSchema = sourceSchema;
+        this.idGenerator = idGenerator;
+        this.connection = connection;
+        this.connectiontarget = connectiontarget;
+        this.connectionCamunda = connectionCamunda;
+
+    }
