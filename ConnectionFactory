@@ -1,0 +1,45 @@
+public final class ConnectionFactory {
+
+    private static ConnectionFactory instance = null;
+    
+    private static String userName1 = "test1";
+    private static String password1 = "test1";
+    private static String serverIP1 = "192.168.1.1";
+    private static String serverSID1 = "orcl1";
+    
+     private static String userName2 = "test2";
+    private static String password2 = "test2";
+    private static String serverIP2 = "192.168.1.2";
+    private static String serverSID2 = "orcl2";
+    
+       synchronized public static ConnectionFactory getInstance(){
+
+        if(instance == null)
+            instance = new ConnectionFactory();
+        return instance;
+    }
+      public Connection getConnection() throws ClassNotFoundException, SQLException {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            return DriverManager.getConnection("jdbc:oracle:thin:@"+ serverIP1 +":1521:" + serverSID1, userName1, password1);
+    }
+    
+    public Connection getConnectionTarget() throws ClassNotFoundException, SQLException {
+        Class.forName("oracle.jdbc.driver.OracleDriver");
+        return DriverManager.getConnection("jdbc:oracle:thin:@"+ serverIpTarget2 +":1521:" + serverSIDTarget2, userNameTarget2, passwordTarget2);
+}
+
+    public void closeStatement(Statement stat) throws SQLException {
+
+            if (stat != null) {
+                stat.close();
+            }
+    }
+
+    public void closeResultSet(ResultSet res) throws SQLException {
+
+            if (res != null) {
+                res.close();
+            }
+    }
+    
+    }
